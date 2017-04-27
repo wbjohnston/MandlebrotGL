@@ -1,6 +1,8 @@
 [package]
 name = "mandlebrotgl"
 version = "0.1.0"
-authors = ["wjohnston"]
+authors = ["Will Johnston <wbjohnston@gmail.com>"]
 
 [dependencies]
+glium   = "^0.16"
+palette = "^0.2"
