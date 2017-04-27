@@ -19,11 +19,9 @@ const INIT_Y_SCALE: f32 = 2.0;
 
 // mandlebrot fragment shader
 const FRAGMENT_SHADER_SRC: &str = r#"
-#version 330
+#version 140
 
 out vec4 color;
-layout(origin_upper_left) in vec4 gl_FragCoord;
-
 uniform vec2 window_size;           // size of window (f32, f32)
 uniform mat2 scale_mat;             // transform matrix
 uniform vec2 trans_vec;             // translation matrix
@@ -149,11 +147,11 @@ fn main() {
                 Event::KeyboardInput(ElementState::Pressed, _, Some(s)) => {
                     match s {
                         VirtualKeyCode::W => { // up
-                            py -= 0.1 * 10f32.powf(scale);
+                            py += 0.1 * 10f32.powf(scale);
                             dirty = true;
                         },
                         VirtualKeyCode::S => { // down
-                            py += 0.1 * 10f32.powf(scale);
+                            py -= 0.1 * 10f32.powf(scale);
                             dirty = true;
                         },
                         VirtualKeyCode::A => { // left
